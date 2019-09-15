@@ -62,6 +62,7 @@ CreateThread(function()
         
         local player = PlayerPedId()
         local coords = GetEntityCoords(player)
+		inTram = IsPedInAnyTrain(player)
         
 		-- add all known trains to table
         trains = GetTrams(coords)
@@ -75,8 +76,6 @@ CreateThread(function()
             else
                 currentNode = nil
             end
-            
-            inTram = IsPedInAnyTrain(player)
         end
 	end
 end)
