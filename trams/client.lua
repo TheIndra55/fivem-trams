@@ -6,7 +6,6 @@ local currentNode = nil
 
 -- list of stations and their node ids
 -- you probably don't have to modify this except when you are renaming stations
--- door = side where doors should stay close at station
 local stations = {
     { node = 179,  name = "Strawberry",      },
     { node = 271,  name = "Puerto Del Sol",  },
@@ -55,7 +54,6 @@ CreateThread(function()
 
         local player = PlayerPedId()
         local coords = GetEntityCoords(player)
-        inTram = IsPedInAnyTrain(player)
 
         -- add all known trains to table
         trains = GetTrams(coords)
@@ -70,6 +68,8 @@ CreateThread(function()
                 currentNode = nil
             end
         end
+
+        inTram = IsPedInAnyTrain(player)
     end
 end)
 
@@ -153,7 +153,7 @@ function GetTrams(coords)
     for vehicle in EnumerateVehicles() do
         local distance = #(GetEntityCoords(vehicle) - coords)
 
-        if distance <= 100 and GetEntityModel(vehicle) == metrotrain then
+        if distance <= 100 and GetEntityModel(vehicle) == `metrotrain` then
             table.insert(trams, {vehicle, distance, GetEntitySpeed(vehicle)})
         end
     end
