@@ -40,7 +40,7 @@ Citizen.CreateThread(function()
 
         if config.enableTrams then SwitchTrainTrack(3, true) end
 
-        N_0x21973bbf8d17edfa(0, 120000) -- found by Disquse
+        SetTrainTrackSpawnFrequency(0, 120000) -- found by Disquse
         SetRandomTrains(1)
     end
 
@@ -150,7 +150,8 @@ function compareCoords(a, b) return a[2] < b[2] end
 function GetTrams(coords)
     local trams = {}
 
-    for vehicle in EnumerateVehicles() do
+    local vehiclePool = GetGamePool("CVehicle");
+    for k, vehicle in pairs(vehiclePool) do
         local distance = #(GetEntityCoords(vehicle) - coords)
 
         if distance <= 100 and GetEntityModel(vehicle) == `metrotrain` then
