@@ -36,16 +36,16 @@ local defaultStationText <const> = "You are on line ~BLIP_536~ the next station 
 
 Citizen.CreateThread(function()
     -- this will tell gta to spawn trains naturally
-	SwitchTrainTrack(0, true)
-	SwitchTrainTrack(3, true)
+    SwitchTrainTrack(0, true)
+    SwitchTrainTrack(3, true)
 
-	SetTrainTrackSpawnFrequency(0, 120000) -- found by Disquse
-	SetRandomTrains(1)
+    SetTrainTrackSpawnFrequency(0, 120000) -- found by Disquse
+    SetRandomTrains(1)
 
-	-- disable doors opening
-	SetTrainsForceDoorsOpen(false)
+    -- disable doors opening
+    SetTrainsForceDoorsOpen(false)
 
-	local text = GetConvar("trams_station_text", defaultStationText)
+    local text = GetConvar("trams_station_text", defaultStationText)
     AddTextEntry("NEXT_STATION_NOTIFICATION", text)
 end)
 
