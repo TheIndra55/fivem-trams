@@ -1,3 +1,8 @@
+#!/usr/bin/node
+
+// very small script to extract all station nodes from trainsx.dat
+// not required to run the resource
+
 const fs = require("fs")
 const readline = require("readline")
 

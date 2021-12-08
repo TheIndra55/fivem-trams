@@ -1,1 +1,0 @@
-This is a simple script I wrote to get all "station" nodes, can be used to regenerate the stations list
